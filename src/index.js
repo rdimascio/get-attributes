@@ -3,23 +3,35 @@
  * Licensed under the MIT License (MIT), see
  * https://github.com/rimascio/getAttributes
  *
- * desc.
+ * Helper methods to make working with element attributes easier.
  *
  * @returns {Object}
- *
- * @examples
- * ex.
  */
 export default (function () {
 	'use strict';
 
 	/**
-     * Desc.
+     * Accepts either a `node` or a `string`. Returns an `object` with all of the element's attributes.
      *
      * @param {String|Node} el - HTML Element
      * @returns {Object}
+	 *
+	 * @example
      *
-     * ex.
+     * getAttributes.parse(document.getElementById('myElement'));
+	 *
+	 * or
+	 *
+	 * getAttributes.parse(`<div id="myElement" class="foo bar" data-random-attribute="23ijo" data-empty-attribute></div>`);
+	 *
+	 * will return:
+	 *
+	 * //	{
+	 * //		class="foo bar",
+	 * //		"data-empty-attribute": "",
+	 * //		"data-random-attribute": "23ijo",
+	 * //		id: "myElement"
+	 * //	}
      */
 	const parse = function (element) {
 		// Handles support for strings.
@@ -78,10 +90,25 @@ export default (function () {
 	};
 
 	/**
-     * Return stringified element attributes.
+     * Accepts an `object`. Retuns a `string` with all of the element's attributes.
      *
      * @param {Object} object - An object of attributes with format: `{ Name<string>: Value<string> }`.
      * @returns {String}
+	 *
+	 * @example
+	 *
+	 * onst myElement = getAttributes.parse(document.getElementById('myElement'));
+	 *
+	 * or
+	 *
+	 * const myElement = `<div id="myElement" class="foo bar" data-random-attribute="23ijo" data-empty-attribute></div>`;
+	 *
+	 * const myElementAttributes = getAttributes.parse(myElement);
+	 * getAttributes.stringify(myElement);
+	 *
+	 * will return:
+	 *
+	 * `class="foo bar" data-random-attribute="23ijo" data-empty-attribute id="myElement"`
      *
      */
 	const stringify = function (attrs) {
