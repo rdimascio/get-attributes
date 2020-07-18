@@ -17,7 +17,7 @@
     "cover:node": "nyc --no-clean npm run test:node",
     "cover:browser": "nyc npm run test:browser",
     "cover:report": "nyc report --reporter=text-lcov | coveralls",
-    "build": "babel --plugins '@babel/plugin-transform-modules-umd' src/index.js --out-file ./dist/index.js --no-comments"
+    "build": "babel --plugins '@babel/plugin-transform-modules-umd' src/index.js --out-file ./dist/index.js --no-comments --source-maps"
   },
   "browserslist": [
     "> 1%",
