@@ -48,15 +48,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rdimascio/blueprint.git"
+    "url": "https://github.com/rdimascio/get-attributes.git"
   },
   "keywords": [],
   "author": "Ryan DiMascio <ryan@dimasc.io> (https://ryan.dimasc.io)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rdimascio/blueprint.git/issues"
+    "url": "https://github.com/rdimascio/get-attributes.git/issues"
   },
-  "homepage": "https://github.com/rdimascio/blueprint.git#readme",
+  "homepage": "https://github.com/rdimascio/get-attributes.git#readme",
   "devDependencies": {
     "@babel/cli": "^7.10.5",
     "@babel/core": "^7.10.5",
