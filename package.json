@@ -10,8 +10,13 @@
     "all": "npm-run-all --sequential build lint cover",
     "lint": "xo",
     "lint:fix": "xo --fix",
-    "test": "ava",
-    "cover": "nyc npm run test",
+    "test:node": "ava --config .ava.node.config.js",
+    "test:browser": "ava --config .ava.browser.config.js",
+    "cover": "npm-run-all --sequential cover:browser cover:node cover:report",
+    "cover:all": "npm-run-all --sequential cover:browser cover:node",
+    "cover:node": "nyc --no-clean npm run test:node",
+    "cover:browser": "nyc npm run test:browser",
+    "cover:report": "nyc report --reporter=text-lcov | coveralls",
     "build": "babel --plugins '@babel/plugin-transform-modules-umd' src --out-file ./dist/index.js --no-comments"
   },
   "browserslist": [
