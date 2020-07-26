@@ -11,14 +11,14 @@ export default (function () {
 	'use strict';
 
 	/**
-     * Accepts either a `node` or a `string`. Returns an `object` with all of the element's attributes.
-     *
-     * @param {String|Node} el - HTML Element
-     * @returns {Object}
+	 * Accepts either a `node` or a `string`. Returns an `object` with all of the element's attributes.
+	 *
+	 * @param {String|Node} el - HTML Element
+	 * @returns {Object}
 	 *
 	 * @example
-     *
-     * getAttributes.parse(document.getElementById('myElement'));
+	 *
+	 * getAttributes.parse(document.getElementById('myElement'));
 	 *
 	 * or
 	 *
@@ -32,13 +32,15 @@ export default (function () {
 	 * //		"data-random-attribute": "23ijo",
 	 * //		id: "myElement"
 	 * //	}
-     */
+	 */
 	const parse = function (element) {
 		// Handles support for strings.
 		if (typeof element === 'string') {
 			// Check for empty string.
 			if (!element) {
-				throw new ReferenceError('The string given to `getAttributes.parse()` is empty.');
+				throw new ReferenceError(
+					'The string given to `getAttributes.parse()` is empty.'
+				);
 			}
 
 			// We're not in a browser environment.
@@ -56,9 +58,7 @@ export default (function () {
 				elementString.forEach(s => {
 					const parts = s.split('=');
 					const name = parts[0];
-					const value = parts[1] ?
-						parts[1].replace(/"/g, '') :
-						'';
+					const value = parts[1] ? parts[1].replace(/"/g, '') : '';
 
 					attributes[name] = value;
 				});
@@ -86,14 +86,18 @@ export default (function () {
 
 		// Don't support anything else.
 
-		throw new TypeError('`getAttributes.parse()` only accepts strings and nodes. An ' + typeof element + ' was given.');
+		throw new TypeError(
+			'`getAttributes.parse()` only accepts strings and nodes. An ' +
+				typeof element +
+				' was given.'
+		);
 	};
 
 	/**
-     * Accepts an `object`. Retuns a `string` with all of the element's attributes.
-     *
-     * @param {Object} object - An object of attributes with format: `{ Name<string>: Value<string> }`.
-     * @returns {String}
+	 * Accepts an `object`. Retuns a `string` with all of the element's attributes.
+	 *
+	 * @param {Object} object - An object of attributes with format: `{ Name<string>: Value<string> }`.
+	 * @returns {String}
 	 *
 	 * @example
 	 *
@@ -109,8 +113,8 @@ export default (function () {
 	 * will return:
 	 *
 	 * `class="foo bar" data-random-attribute="23ijo" data-empty-attribute id="myElement"`
-     *
-     */
+	 *
+	 */
 	const stringify = function (attrs) {
 		if (!attrs) {
 			throw new ReferenceError('Cannot stringify undefined.');
@@ -136,10 +140,10 @@ export default (function () {
 	};
 
 	/**
-     * Get HTML attributes from an element.
-     * @param {Node} el - Element.
-     * @returns {Object}
-     */
+	 * Get HTML attributes from an element.
+	 * @param {Node} el - Element.
+	 * @returns {Object}
+	 */
 	function getAttributesFromNode(element) {
 		const elementAttrs = element.attributes;
 		const attributes = {};

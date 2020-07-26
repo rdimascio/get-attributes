@@ -33,7 +33,7 @@ If you're not using a module bundler with your client-side JavaScript, (i.e. Web
 
 ### 2. Usage
 
-If you installed the script using npm, then import the package and you're good to go.
+If you installed the script using npm, then import the package and call the methods.
 
 **Note:** In Node environments, the `parse()` method will only accept a `string`.
 

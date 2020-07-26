@@ -2,7 +2,8 @@
   "name": "get-attributes",
   "version": "0.0.0-development",
   "description": "",
-  "main": "dist/index.js",
+  "main": "./dist/index.min.js",
+  "unpkg": "./dist/index.min.js",
   "files": [
     "dist"
   ],
@@ -10,6 +11,7 @@
     "all": "npm-run-all --sequential build lint cover",
     "lint": "xo",
     "lint:fix": "xo --fix",
+    "test": "npm-run-all test:node test:browser",
     "test:node": "ava --config .ava.node.config.js",
     "test:browser": "ava --config .ava.browser.config.js",
     "cover": "npm-run-all --sequential cover:browser cover:node cover:report",
@@ -17,7 +19,8 @@
     "cover:node": "nyc --no-clean npm run test:node",
     "cover:browser": "nyc npm run test:browser",
     "cover:report": "nyc report --reporter=text-lcov | coveralls",
-    "build": "babel --plugins '@babel/plugin-transform-modules-umd' src/index.js --out-file ./dist/index.js --no-comments --source-maps"
+    "dev": "rollup -c -w",
+    "build": "npx rimraf ./dist && rollup -c"
   },
   "browserslist": [
     "> 1%",
@@ -58,17 +61,16 @@
   },
   "homepage": "https://github.com/rdimascio/get-attributes.git#readme",
   "devDependencies": {
-    "@babel/cli": "^7.10.5",
-    "@babel/core": "^7.10.5",
-    "@babel/plugin-transform-modules-umd": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
+    "@rollup/plugin-babel": "^5.1.0",
     "ava": "^3.10.1",
     "babel-polyfill": "^6.26.0",
     "browser-env": "^3.3.0",
     "commitizen": "^4.1.2",
     "coveralls": "^3.1.0",
+    "cross-env": "^7.0.2",
     "cz-conventional-changelog": "^3.2.0",
     "eslint-config-xo": "^0.32.0",
     "eslint-plugin-ava": "^10.4.0",
@@ -77,6 +79,9 @@
     "lint-staged": "^10.2.11",
     "npm-run-all": "^4.1.5",
     "nyc": "^15.1.0",
+    "rollup": "^2.23.0",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-uglify": "^6.0.4",
     "semantic-release": "^17.1.1",
     "xo": "^0.32.1"
   }
