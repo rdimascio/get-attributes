@@ -1,5 +1,7 @@
 import test from 'ava';
-import getAttributes from '..';
+
+// eslint-disable-next-line import/extensions
+import getAttributes from '../../dist/index.min.js';
 
 test('`getAttributes.parse()` parses attributes from a string', t => {
 	const string = '<div id="ava" data-brand-icon="ava" data-brand-color="dark"></div>';

@@ -1,7 +1,9 @@
 /* eslint-disable no-undef */
 
 import test from 'ava';
-import getAttributes from '..';
+
+// eslint-disable-next-line import/extensions
+import getAttributes from '../../dist/index.min.js';
 
 test('`getAttributes.parse()` parses attributes from a DOM element', t => {
 	const div = document.createElement('div');
