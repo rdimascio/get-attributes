@@ -1,8 +1,9 @@
 {
   "name": "get-attributes",
   "version": "0.0.0-development",
-  "description": "",
-  "main": "./dist/index.min.js",
+  "description": "A lightweight, fully-tested, zero-dependency module to make it easier to work with element attributes.",
+  "main": "./dist/index.js",
+  "module": "./dist/index.m.js",
   "unpkg": "./dist/index.min.js",
   "files": [
     "dist"
